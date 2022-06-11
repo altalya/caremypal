@@ -2,8 +2,10 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
+const withPlugins = require('next-compose-plugins');
+const optimizedImages = require('next-optimized-images');
 
-module.exports = withBundleAnalyzer({
+exports.withBundleAnalyzer = withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
@@ -12,3 +14,16 @@ module.exports = withBundleAnalyzer({
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
 });
+
+exports.withPlugins = withPlugins([
+  [
+    optimizedImages,
+    {
+      /* config for next-optimized-images */
+      handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+      removeOriginalExtension: false,
+      optimizeImages: true,
+      optimizeImagesInDev: false,
+    },
+  ],
+]);
