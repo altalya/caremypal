@@ -2,10 +2,8 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
 
-exports.withBundleAnalyzer = withBundleAnalyzer({
+module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
@@ -14,19 +12,8 @@ exports.withBundleAnalyzer = withBundleAnalyzer({
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
   images: {
-    disableStaticImages: true,
+    domains: ['res.cloudinary.com'],
+    loader: 'cloudinary',
+    path: 'https://fancy-khapse-309e7e.netlify.app/',
   },
 });
-
-exports.withPlugins = withPlugins([
-  [
-    optimizedImages,
-    {
-      /* config for next-optimized-images */
-      handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
-      removeOriginalExtension: false,
-      optimizeImages: true,
-      optimizeImagesInDev: false,
-    },
-  ],
-]);
