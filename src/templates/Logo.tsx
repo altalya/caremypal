@@ -1,16 +1,9 @@
-import Image from 'next/image';
-
 const Logo = () => {
   return (
     <div className="container flex justify-center">
-      <Image
-        src="/caremypal/logo_ajp5qj.png"
-        width={410}
-        height={149}
+      <img
+        src="https://res.cloudinary.com/altalya/image/upload/v1655049947/caremypal/logo_ajp5qj.png"
         alt="CareMyPal"
-        quality={100}
-        layout="responsive"
-        objectFit="contain"
       />
     </div>
   );
