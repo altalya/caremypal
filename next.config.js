@@ -14,6 +14,6 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ['res.cloudinary.com'],
     loader: 'cloudinary',
-    path: 'https://fancy-khapse-309e7e.netlify.app/',
+    path: 'https://res.cloudinary.com/altalya',
   },
 });
