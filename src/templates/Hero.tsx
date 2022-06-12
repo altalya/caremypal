@@ -25,9 +25,9 @@ const Hero = () => (
         }
         description="Reach out to us via Whatsapp or Call!"
         button={
-          <Link href="https://creativedesignsguru.com/category/nextjs/">
+          <Link href="#">
             <a>
-              <Button xl>Download Your Free Theme</Button>
+              <Button xl>Contact Us!</Button>
             </a>
           </Link>
         }

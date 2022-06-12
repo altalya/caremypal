@@ -13,10 +13,10 @@ const VerticalFeatures = () => (
       imageAlt="How it works?"
     />
     <VerticalFeatureRow
-      title="Your title here"
+      title="Our services"
       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
-      image="/assets/images/feature2.svg"
-      imageAlt="Second feature alt text"
+      image="/assets/images/baby-care.png"
+      imageAlt="Baby care"
       reverse
     />
     <VerticalFeatureRow

@@ -4,9 +4,12 @@ const Logo = () => {
   return (
     <div className="container flex justify-center">
       <Image
-        src="https://res.cloudinary.com/altalya/image/upload/v1655049947/caremypal/logo_ajp5qj.png"
+        src="/caremypal/logo_ajp5qj.png"
         width={410}
         height={149}
+        alt="CareMyPal"
+        quality={100}
+        layout="responsive"
         objectFit="contain"
       />
     </div>
