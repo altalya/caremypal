@@ -1,7 +1,8 @@
 import { Schema, model, models } from 'mongoose';
 
 const workForceSchema = new Schema({
-  name: String,
+  fname: String,
+  lname: String,
   phone: Number,
 });
 
