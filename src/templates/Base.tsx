@@ -3,7 +3,7 @@ import { AppConfig } from '../utils/AppConfig';
 import { Banner } from './Banner';
 import Cards from './Cards';
 import { Footer } from './Footer';
-// import { Hero } from './Hero';
+import { Hero } from './Hero';
 import { Logo } from './Logo';
 import { VerticalFeatures } from './VerticalFeatures';
 
@@ -12,8 +12,8 @@ const Base = () => (
     <div>
       <Meta title={AppConfig.title} description={AppConfig.description} />
       <Logo />
+      <Hero />
       <Cards />
-      {/* <Hero /> */}
       <VerticalFeatures />
       <Banner />
       <Footer />
