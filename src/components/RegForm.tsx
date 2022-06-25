@@ -21,7 +21,7 @@ function RegForm() {
 
   return (
     <>
-      <div className="w-full max-w-xs">
+      <div className="w-full">
         <form
           className="bg-white rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
@@ -67,36 +67,7 @@ function RegForm() {
               />
             </div>
           </div>
-          {/* <div className="mb-4">
-            <label
-              
-              htmlFor="fname"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              name="fname"
-              
-              onChange={(e) => {
-                setFName(e.target.value);
-              }}
-            />
-              <label
-              className="block text-black text-sm font-bold mb-1"
-              htmlFor="lname"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              name="lname"
-              className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-              onChange={(e) => {
-                setLName(e.target.value);
-              }}
-            />
-          </div> */}
+
           <div className="mb-4">
             <label
               className="block text-black text-sm font-bold mb-1"
@@ -118,6 +89,86 @@ function RegForm() {
             </p> */}
           </div>
 
+          <div className="mb-4">
+            <label
+              className="block text-black text-sm font-bold mb-1"
+              htmlFor="field"
+            >
+              Field
+            </label>
+            <select
+              className="block w-full p-3 border border-gray-300 rounded-sm cursor-pointer focus:outline-none"
+              name="field"
+              multiple
+            >
+              <option value="E">Elderly Care</option>
+              <option value="P">Patient Care</option>
+              <option value="B">Baby Care</option>
+              <option value="H">Home Care</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-black text-sm font-bold mb-1"
+              htmlFor="type"
+            >
+              Type
+            </label>
+            <select
+              className="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              name="type"
+            >
+              <option value="S">Select</option>
+              <option value="C">Graduated/Certified</option>
+              <option value="E">Experienced</option>
+              <option value="G">General</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-black text-sm font-bold mb-1"
+              htmlFor="wh"
+            >
+              Work Hours
+            </label>
+            <select
+              className="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              name="wh"
+            >
+              <option value="S">Select</option>
+              <option value="F">Full-time</option>
+              <option value="P">Part-time</option>
+              <option value="L">24 hrs Live-in</option>
+            </select>
+          </div>
           <input
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
