@@ -1,4 +1,4 @@
-import { Schema, model, models } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const workForceSchema = new Schema({
   fname: String,
@@ -10,6 +10,15 @@ const workForceSchema = new Schema({
   type: String,
 });
 
-const Session = models.Test || model('cmpworkforces', workForceSchema);
+// const Session = models.Test || model('cmpworkforces', workForceSchema);
 
-export default Session;
+let Session;
+try {
+  Session = model('cmpworkforces');
+} catch (error) {
+  Session = model('cmpworkforces', workForceSchema);
+}
+
+const Doc = Session;
+
+export default Doc;

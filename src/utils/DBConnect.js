@@ -1,8 +1,5 @@
 import mongoose from 'mongoose';
 
-const ConnectDB = async () =>
-  mongoose.connect(
-    'mongodb+srv://systems:Vanguard23@cmp.9tzmo.mongodb.net/CMP?retryWrites=true&w=majority'
-  );
+const ConnectDB = async () => mongoose.connect(process.env.MONGO_URI);
 
 export default ConnectDB;

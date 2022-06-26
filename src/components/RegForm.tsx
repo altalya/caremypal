@@ -1,26 +1,37 @@
 import { useState } from 'react';
 
-function RegForm() {
-  const [fName, setFName] = useState('');
-  const [lName, setLName] = useState('');
+function RegForm(props: any) {
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
   const [phone, setPhone] = useState('');
   const [wh, setWh] = useState('');
   const [city, setCity] = useState('');
   const [field, setField] = useState('');
   const [type, setType] = useState('');
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: any) => {
     // window.alert(`name: ${name}number: ${phone}`);
-
-    const response = await fetch('/api/workForceRegistration', {
+    e.preventDefault();
+    await fetch('/api/workForceRegistration', {
       method: 'POST',
-      body: JSON.stringify({ fName, lName, phone, wh, city, field, type }),
+      body: JSON.stringify({ fname, lname, phone, wh, city, field, type }),
       headers: {
         'Content-Type': 'application/json',
       },
+    }).then((res) => {
+      // console.log("res" + res.status)
+      if (res.status === 200) {
+        props.modal(1);
+        console.log(`res success${res.status}`);
+      } else {
+        props.modal(0);
+        console.log('failure');
+      }
     });
-    const data = await response.json();
-    console.log(`data${data}`);
+
+    // const data = await response.json();
+    // console.log("data" + Object.values(data[0]));
+    // console.log("data"+Object.values(response));
   };
 
   return (
@@ -28,7 +39,9 @@ function RegForm() {
       <div className="w-full">
         <form
           className="bg-white rounded px-8 pt-6 pb-8 mb-4"
-          onSubmit={handleSubmit}
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
           method="POST"
         >
           <div className="grid xl:grid-cols-2 xl:gap-6">
@@ -43,10 +56,31 @@ function RegForm() {
                 type="text"
                 name="fname"
                 id="floating_first_name"
-                className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                className="appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder=" "
                 onChange={(e) => {
-                  setFName(e.target.value);
+                  if (e.target.value.length > 100) {
+                    e.target.value = e.target.value.slice(0, 100);
+                  }
+                  if (/^[a-zA-Z ]*$/.test(e.target.value) === false) {
+                    e.target.value = e.target.value.slice(
+                      0,
+                      e.target.value.length - 1
+                    );
+                  }
+                  setFname(e.target.value);
                 }}
               />
             </div>
@@ -61,10 +95,22 @@ function RegForm() {
                 type="text"
                 name="lname"
                 id="floating_last_name"
-                className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                className="appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder=" "
                 onChange={(e) => {
-                  setLName(e.target.value);
+                  setLname(e.target.value);
                 }}
               />
             </div>
@@ -82,15 +128,28 @@ function RegForm() {
               // className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               type="number"
               name="phnumber"
-              className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-              onChange={(e) => {
+              className="appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              onChange={(e: any) => {
+                if (e.target.value.length > 10)
+                  e.target.value = e.target.value.slice(0, 10);
+                if (e.target.value[0] < 6)
+                  e.target.value = e.target.value.slice(1, 10);
                 setPhone(e.target.value);
               }}
               required
             />
-            {/* <p className="text-red-500 text-xs italic">
-              Phone number is mandatory
-            </p> */}
           </div>
 
           <div className="grid xl:grid-cols-2 xl:gap-6">
@@ -206,7 +265,7 @@ function RegForm() {
                 className="block text-black text-sm font-bold mb-1"
                 htmlFor="city"
               >
-                Place
+                Current Place
               </label>
               <select
                 className="form-select appearance-none
@@ -237,10 +296,12 @@ function RegForm() {
               </select>
             </div>
           </div>
-          <input
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          />
+          <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+            <input
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            />
+          </div>
         </form>
       </div>
     </>

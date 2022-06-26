@@ -14,7 +14,7 @@ export default async function addTest(req, res) {
     console.log('CREATING DOCUMENT');
     const test = await Session.create(req.body);
     console.log('CREATED DOCUMENT');
-
+    // windows.alert("Congulations!! On Joining our team!!")
     res.json({ test });
   } catch (error) {
     console.log(error);

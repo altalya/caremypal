@@ -3,17 +3,17 @@ import { Section } from '../layout/Section';
 const Cards = () => {
   return (
     <Section>
-      <div className="container p-15">
-        <div className="text-gray-900 text-2xl font-semibold pl-5 pb-2">
+      <div className="container p-1">
+        <div className="mb-12 text-center text-3xl text-gray-900 font-bold">
           Our Services
         </div>
-        <div className="container flex justify-between">
+        <div className="container flex flex-wrap items-center justify-center">
           <div className="flex justify-center mx-2">
             <div className="rounded-lg shadow-lg bg-white max-w-sm">
               <a href="#!">
                 <img
                   className="rounded-t-lg"
-                  src="/assets/images/elderly-care.jpeg"
+                  src="/assets/images/elderly-care-rs.jpg"
                   alt=""
                 />
               </a>
@@ -29,7 +29,7 @@ const Cards = () => {
               <a href="#!">
                 <img
                   className="rounded-t-lg"
-                  src="/assets/images/patient-care.png"
+                  src="/assets/images/patient-care-rs.png"
                   alt=""
                 />
               </a>
@@ -45,7 +45,7 @@ const Cards = () => {
               <a href="#!">
                 <img
                   className="rounded-t-lg"
-                  src="/assets/images/baby-care.png"
+                  src="/assets/images/baby-care-rs.jpg"
                   alt=""
                 />
               </a>
@@ -61,7 +61,7 @@ const Cards = () => {
               <a href="#!">
                 <img
                   className="rounded-t-lg"
-                  src="/assets/images/home-care.jpeg"
+                  src="/assets/images/home-care-rs.jpg"
                   alt=""
                 />
               </a>

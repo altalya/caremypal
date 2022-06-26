@@ -8,6 +8,16 @@ import { Section } from '../layout/Section';
 
 const Banner = () => {
   const [showModal, setShowModal] = useState(false);
+  const [commitStatus, setCommitStatus] = useState(-1);
+
+  const modalStatus = (status: any) => {
+    setCommitStatus(status);
+    if (status) {
+      setShowModal(false);
+    } else {
+      setShowModal(false);
+    }
+  };
   return (
     <Section>
       <CTABanner
@@ -15,7 +25,7 @@ const Banner = () => {
         subtitle="Be a part of us with any of the services"
         button={
           <button
-            className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"
             onClick={() => setShowModal(true)}
           >
@@ -29,6 +39,50 @@ const Banner = () => {
           // </Link>
         }
       />
+      {commitStatus === 1 ? (
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          role="alert"
+        >
+          <strong className="font-bold">Congratulations!!</strong>
+          <span className="block sm:inline">You are a part of our team!</span>
+          <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg
+              className="fill-current h-6 w-6 text-red-500"
+              role="button"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <title>Close</title>
+              <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+            </svg>
+          </span>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {commitStatus === 0 ? (
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          role="alert"
+        >
+          <span className="block sm:inline">Something went wrong! call </span>
+          <strong className="font-bold">7560056003</strong>
+          <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg
+              className="fill-current h-6 w-6 text-red-500"
+              role="button"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <title>Close</title>
+              <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+            </svg>
+          </span>
+        </div>
+      ) : (
+        <div></div>
+      )}
       {showModal ? (
         <>
           {/* <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"> */}
@@ -59,7 +113,7 @@ const Banner = () => {
                   {/* </button> */}
                 </div>
                 <div className="relative p-6 flex-auto">
-                  <RegForm />
+                  <RegForm modal={modalStatus} />
                   {/* <form className="bg-white rounded px-8 pt-6 pb-8 mb-4">
                       <div className="mb-4">
                     <label className="block text-black text-sm font-bold mb-1">
@@ -87,7 +141,7 @@ const Banner = () => {
                         </div>
                   </form> */}
                 </div>
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                {/* <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                     type="button"
@@ -102,7 +156,7 @@ const Banner = () => {
                   >
                     Submit
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
