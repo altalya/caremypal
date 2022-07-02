@@ -18,7 +18,7 @@ const Logo = () => {
           ></path>
         </svg>
         <span className="text-3xl text-gray-900 font-bold pt-2  pl-1.5 ">
-          75600756003
+          <a href="tel:75600756003">75600756003</a>
         </span>
 
         {/* <Link href="/RegForm">

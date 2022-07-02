@@ -8,18 +8,18 @@ import { Section } from '../layout/Section';
 
 const Banner = () => {
   const [showModal, setShowModal] = useState(false);
-  const [commitStatus, setCommitStatus] = useState(-1);
+  const [commitStatus, setCommitStatus] = useState(2);
 
   const modalStatus = (status: any) => {
     setCommitStatus(status);
-    if (status) {
-      setShowModal(false);
-    } else {
-      setShowModal(false);
-    }
+    setShowModal(false);
+    setInterval(() => {
+      setCommitStatus(2);
+    }, 8000);
   };
   return (
     <Section>
+      {console.log(`commit status${commitStatus}`)}
       <CTABanner
         title="Become a caregiver your way!"
         subtitle="Be a part of us with any of the services"
@@ -46,7 +46,7 @@ const Banner = () => {
         >
           <strong className="font-bold">Congratulations!!</strong>
           <span className="block sm:inline">You are a part of our team!</span>
-          <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+          {/* <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
             <svg
               className="fill-current h-6 w-6 text-red-500"
               role="button"
@@ -56,19 +56,22 @@ const Banner = () => {
               <title>Close</title>
               <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
             </svg>
-          </span>
+          </span> */}
         </div>
       ) : (
         <div></div>
       )}
+      {commitStatus === 2 ? <></> : <></>}
       {commitStatus === 0 ? (
         <div
           className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
           role="alert"
         >
-          <span className="block sm:inline">Something went wrong! call </span>
+          <span className="block sm:inline">
+            Something went wrong! call or whatsapp{' '}
+          </span>
           <strong className="font-bold">7560056003</strong>
-          <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+          {/* <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
             <svg
               className="fill-current h-6 w-6 text-red-500"
               role="button"
@@ -78,7 +81,7 @@ const Banner = () => {
               <title>Close</title>
               <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
             </svg>
-          </span>
+          </span> */}
         </div>
       ) : (
         <div></div>
@@ -86,7 +89,7 @@ const Banner = () => {
       {showModal ? (
         <>
           {/* <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"> */}
-          <div className="flex justify-center items-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
             <div className="relative w-auto my-6 max-w-lg">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">

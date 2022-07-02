@@ -2,12 +2,12 @@ import { Schema, model } from 'mongoose';
 
 const workForceSchema = new Schema({
   fname: String,
-  lname: String,
+  prof: String,
   phone: Number,
   wh: String,
   city: String,
   field: String,
-  type: String,
+  cook: String,
 });
 
 // const Session = models.Test || model('cmpworkforces', workForceSchema);

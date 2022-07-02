@@ -18,6 +18,6 @@ export default async function addTest(req, res) {
     res.json({ test });
   } catch (error) {
     console.log(error);
-    res.json({ error });
+    throw new Error({ error });
   }
 }
