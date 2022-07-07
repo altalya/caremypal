@@ -19,7 +19,7 @@ const Banner = () => {
   };
   return (
     <Section>
-      {console.log(`commit status${commitStatus}`)}
+      {/* {console.log(`commit status${commitStatus}`)} */}
       <CTABanner
         title="Become a caregiver your way!"
         subtitle="Be a part of us with any of the services"
