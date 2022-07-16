@@ -1,172 +1,23 @@
-// import Link from 'next/link';
-import { useState } from 'react';
+import Link from 'next/link';
 
-import RegForm from '../components/RegForm';
-// import { Button } from '../button/Button';
+import { Button } from '../button/Button';
 import { CTABanner } from '../cta/CTABanner';
 import { Section } from '../layout/Section';
 
-const Banner = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [commitStatus, setCommitStatus] = useState(2);
-
-  const modalStatus = (status: any) => {
-    setCommitStatus(status);
-    setShowModal(false);
-    setInterval(() => {
-      setCommitStatus(2);
-    }, 8000);
-  };
-  return (
-    <Section>
-      {/* {console.log(`commit status${commitStatus}`)} */}
-      <CTABanner
-        title="Become a caregiver your way!"
-        subtitle="Be a part of us with any of the services"
-        button={
-          <button
-            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
-            onClick={() => setShowModal(true)}
-          >
-            Join Now
-          </button>
-
-          // <Link href="#">
-          //   <a>
-          //     <Button>Get Started</Button>
-          //   </a>
-          // </Link>
-        }
-      />
-      {commitStatus === 1 ? (
-        <div
-          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-          role="alert"
-        >
-          <strong className="font-bold">Congratulations!!</strong>
-          <span className="block sm:inline">You are a part of our team!</span>
-          {/* <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
-            <svg
-              className="fill-current h-6 w-6 text-red-500"
-              role="button"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <title>Close</title>
-              <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-            </svg>
-          </span> */}
-        </div>
-      ) : (
-        <div></div>
-      )}
-      {commitStatus === 2 ? <></> : <></>}
-      {commitStatus === 0 ? (
-        <div
-          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-          role="alert"
-        >
-          <span className="block sm:inline">
-            Something went wrong! call or whatsapp{' '}
-          </span>
-          <strong className="font-bold">7560056003</strong>
-          {/* <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
-            <svg
-              className="fill-current h-6 w-6 text-red-500"
-              role="button"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <title>Close</title>
-              <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-            </svg>
-          </span> */}
-        </div>
-      ) : (
-        <div></div>
-      )}
-      {showModal ? (
-        <>
-          {/* <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"> */}
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-            <div className="relative w-auto my-6 max-w-lg">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Registration Form
-                  </h3>
-                  <button
-                    className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    onClick={() => setShowModal(false)}
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  {/* </button> */}
-                </div>
-                <div className="relative p-6 flex-auto">
-                  <RegForm modal={modalStatus} />
-                  {/* <form className="bg-white rounded px-8 pt-6 pb-8 mb-4">
-                      <div className="mb-4">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      First Name
-                    </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                      </div>
-                      <div className="mb-4">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Last Name
-                    </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                      </div>
-                      <div className="mb-4">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Address
-                    </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                      </div>
-                      <div className="mb-4">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      City
-                    </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                        </div>
-                  </form> */}
-                </div>
-                {/* <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Submit
-                  </button>
-                </div> */}
-              </div>
-            </div>
-          </div>
-        </>
-      ) : null}
-    </Section>
-  );
-};
+const Banner = () => (
+  <Section>
+    <CTABanner
+      title="Looking for a Caregiver or Helper?"
+      subtitle="Request for a callback today!"
+      button={
+        <Link href="#">
+          <a>
+            <Button>Get Started</Button>
+          </a>
+        </Link>
+      }
+    />
+  </Section>
+);
 
 export { Banner };
